@@ -2,7 +2,6 @@ import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Container from '@mui/material/Container';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -11,7 +10,6 @@ import MenuItem from '@mui/material/MenuItem';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
-import AdbIcon from '@mui/icons-material/Adb';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -40,7 +38,11 @@ function Navbar() {
     <AppBar position="static" sx={{ background: 'linear-gradient(90deg, #00FFFF, #008080)' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Box>
+          {/* Imagem pequena no canto esquerdo */}
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <img src="https://w7.pngwing.com/pngs/52/25/png-transparent-gym-logo-fitness-thumbnail.png" height="70," />
+          </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <IconButton
               size="large"
               aria-label="menu"
@@ -52,11 +54,6 @@ function Navbar() {
               {/* Ícone do menu */}
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" noWrap component="a" href="/">
-              LOGO
-            </Typography>
-          </Box>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
             {pages.map((page) => (
               <Button key={page} color="inherit">
                 {page}
@@ -85,7 +82,7 @@ function Navbar() {
               >
                 {settings.map((setting) => (
                   <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography>{setting}</Typography>
+                    {setting}
                   </MenuItem>
                 ))}
               </Menu>
